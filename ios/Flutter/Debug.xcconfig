@@ -1,2 +1,29 @@
 #include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
 #include "Generated.xcconfig"
+
+// MARK: - common
+
+// Default value is empty.
+TRACK_WIDGET_CREATION =
+DEVELOPMENT_TEAM =
+FLUTTER_TARGET = lib/main.dart
+
+// MARK: - staging
+
+PRODUCT_BUNDLE_IDENTIFIER[config=Debug-staging] = jp.yuoku.FlutterTemplate.stg
+PROVISIONING_PROFILE_SPECIFIER[config=Debug-staging] = FlutterTemplateStaging_Dev
+DEVELOPMENT_TEAM[config=Debug-staging] = B8PR34D6DP
+CODE_SIGN_IDENTITY[config=Debug-staging, sdk=iphoneos*] = Apple Development: Yuki Okudera (4FUZT92X5J)
+DISPLAY_NAME[config=Debug-staging] = FlutterTpl-stg
+TRACK_WIDGET_CREATION[config=Debug-staging] = staging
+APS_ENVIRONMENT[config=Debug-staging] = development
+
+// MARK: - production
+
+PRODUCT_BUNDLE_IDENTIFIER[config=Debug-production] = jp.yuoku.FlutterTemplate
+PROVISIONING_PROFILE_SPECIFIER[config=Debug-production] = FlutterTemplateProduction_Dev
+DEVELOPMENT_TEAM[config=Debug-production] = B8PR34D6DP
+CODE_SIGN_IDENTITY[config=Debug-production, sdk=iphoneos*] = Apple Development: Yuki Okudera (4FUZT92X5J)
+DISPLAY_NAME[config=Debug-production] = FlutterTpl
+TRACK_WIDGET_CREATION[config=Debug-production] = production
+APS_ENVIRONMENT[config=Debug-production] = development
