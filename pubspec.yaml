@@ -18,22 +18,66 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: '>=2.15.1 <3.0.0'
+  flutter: '>=2.8.1'
 
-# Dependencies specify other packages that your package needs in order to work.
-# To automatically upgrade your package dependencies to the latest versions
-# consider running `flutter pub upgrade --major-versions`. Alternatively,
-# dependencies can be manually updated by changing the version numbers below to
-# the latest version available on pub.dev. To see which dependencies have newer
-# versions available, run `flutter pub outdated`.
 dependencies:
   flutter:
     sdk: flutter
 
+  # Increase the code-sharing between widgets by removing duplicates
+  flutter_hooks: ^0.18.0
+  # A state-management library
+  hooks_riverpod: ^1.0.1
+
+  # For Networking
+  ## A powerful Http client for Dart
+  dio: ^4.0.0
+  ## A type conversion dio client generator
+  retrofit: ^2.0.0
+
+  # Model code generator
+  ## Provides Dart Build System builders for handling JSON.
+  json_serializable: ^6.1.4
+  freezed_annotation: ^0.14.2
+
+  # Data persistence
+  shared_preferences: ^2.0.7
+
+  # Small, easy to use and extensible logger
+  logger: ^1.1.0
+
+  # For mocking platform
+  platform: ^3.1.0
+
+  # For finding commonly used locations on the filesystem.
+  path_provider: ^2.0.9
+
+  # Simple, fast generation of RFC4122 UUIDs.
+  uuid: ^3.0.4
+
+  tuple: ^2.0.0
+
+  # For Format
+  intl: ^0.17.0
+
+  # For Navigation
+  auto_route: ^3.2.1
+  provider: ^6.0.1
+
+  # UI
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.3
+
+  # A Flutter plugin that provides a WebView widget.
+  webview_flutter: 2.0.13
+
+  gap: ^2.0.0
+  google_fonts: ^2.1.0
+  flutter_svg: ^0.22.0
+  adaptive_dialog: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -46,44 +90,46 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
+  build_runner: ^2.0.4
 
-# The following section is specific to Flutter.
+  # For Networking
+  retrofit_generator: ^2.0.0+1
+
+  # For Assets
+  flutter_gen_runner: ^3.1.1
+
+  # For Navigation
+  auto_route_generator: ^3.2.1
+
+  # For Analyzer
+  effective_dart: ^1.3.0
+
+  # For Model
+  freezed: ^0.14.2
+
+  # For Testing
+  mocktail: ^0.3.0
+  mocktail_image_network: ^0.3.1
+
+  # For Icon
+  flutter_launcher_icons: ^0.9.2
+
+flutter_icons:
+  image_path: "assets/images/icon-120x120.png"
+  image_path_android: "assets/images/icon-520x520.png"
+  image_path_ios: "assets/images/icon-1024x1024.png"
+  android: true # can specify file name here e.g. "ic_launcher"
+  ios: true # can specify file name here e.g. "My-Launcher-Icon"
+  adaptive_icon_background: "assets/images/icon-background.png" # only available for Android 8.0 devices and above
+  adaptive_icon_foreground: "assets/images/icon-foreground.png" # only available for Android 8.0 devices and above
+
+flutter_gen:
+  integrations:
+    flutter_svg: true
+
 flutter:
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
-
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
-
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware.
-
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
-
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  generate: true
+  assets:
+    - assets/images/
+    - assets/svgs/
