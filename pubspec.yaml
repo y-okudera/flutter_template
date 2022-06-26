@@ -47,6 +47,9 @@ dependencies:
   # Small, easy to use and extensible logger
   logger: ^1.1.0
 
+  # Convert between Enum and String
+  enum_to_string: ^2.0.1
+
   # For mocking platform
   platform: ^3.1.0
 
