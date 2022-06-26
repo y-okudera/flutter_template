@@ -42,7 +42,6 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "jp.yuoku.flutter_template"
         minSdkVersion 23
         targetSdkVersion 30
@@ -63,11 +62,11 @@ android {
         staging {
             dimension "environment"
             applicationIdSuffix ".stg"
-            resValue "string", "app_name", "FlutterTpl-stg"
+            resValue "string", "app_name", "Template-stg"
         }
         production {
             dimension "environment"
-            resValue "string", "app_name", "FlutterTpl"
+            resValue "string", "app_name", "Template"
         }
     }
 }
