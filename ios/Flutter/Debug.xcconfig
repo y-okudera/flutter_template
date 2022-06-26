@@ -17,6 +17,7 @@ CODE_SIGN_IDENTITY[config=Debug-staging, sdk=iphoneos*] = Apple Development: Yuk
 DISPLAY_NAME[config=Debug-staging] = FlutterTpl-stg
 TRACK_WIDGET_CREATION[config=Debug-staging] = staging
 APS_ENVIRONMENT[config=Debug-staging] = development
+ASSETCATALOG_COMPILER_APPICON_NAME[config=Debug-staging] = AppIcon-staging
 
 // MARK: - production
 
@@ -27,3 +28,4 @@ CODE_SIGN_IDENTITY[config=Debug-production, sdk=iphoneos*] = Apple Development: 
 DISPLAY_NAME[config=Debug-production] = FlutterTpl
 TRACK_WIDGET_CREATION[config=Debug-production] = production
 APS_ENVIRONMENT[config=Debug-production] = development
+ASSETCATALOG_COMPILER_APPICON_NAME[config=Debug-production] = AppIcon-production
