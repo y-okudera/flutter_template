@@ -2,14 +2,13 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_template/gen/assets.gen.dart';
 import 'package:flutter_template/presentation/component/animation/scale_animation_input.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final gitHubMarkScaleAnimationProvider =
     Provider.family<ScaleAnimation, ScaleAnimationInput>(
   (ref, scaleAnimationInput) {
-    return ScaleAnimation.gitHubMark(scaleAnimationInput: scaleAnimationInput);
+    return ScaleAnimation.standard(scaleAnimationInput: scaleAnimationInput);
   },
 );
 
@@ -28,7 +27,7 @@ class ScaleAnimation extends HookWidget {
         _opacityAnimation = opacityAnimation,
         super(key: key);
 
-  factory ScaleAnimation.gitHubMark({
+  factory ScaleAnimation.standard({
     required ScaleAnimationInput scaleAnimationInput,
   }) {
     final screenSize = scaleAnimationInput.screenSize;
@@ -40,7 +39,7 @@ class ScaleAnimation extends HookWidget {
     final opacityAnimationController =
         scaleAnimationInput.opacityAnimationController;
     return ScaleAnimation(
-      image: Assets.images.gitHubMark.image().image,
+      image: scaleAnimationInput.image,
       scaleAnimationController: scaleAnimationController,
       scaleAnimation: TweenSequence<double>([
         TweenSequenceItem(

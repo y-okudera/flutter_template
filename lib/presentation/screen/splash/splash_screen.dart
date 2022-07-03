@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_template/gen/assets.gen.dart';
 import 'package:flutter_template/presentation/component/animation/scale_animation.dart';
 import 'package:flutter_template/presentation/component/animation/scale_animation_input.dart';
 import 'package:flutter_template/presentation/route/app_route.dart';
@@ -14,6 +15,7 @@ class SplashScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final animationDuration = 500;
     final scaleAnimationInput = ScaleAnimationInput(
+      image: Assets.images.gitHubMark.image().image,
       scaleAnimationController: useAnimationController(
         duration: Duration(milliseconds: animationDuration),
       ),
