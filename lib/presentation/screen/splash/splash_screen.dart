@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_template/presentation/style/app_theme.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_template/presentation/component/animation/scale_animation.dart';
+import 'package:flutter_template/presentation/component/animation/scale_animation_input.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SplashScreen extends HookConsumerWidget {
@@ -8,7 +10,30 @@ class SplashScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final appTheme = ref.watch(appThemeProvider(context));
+    final animationDuration = 500;
+    final scaleAnimationInput = ScaleAnimationInput(
+      scaleAnimationController: useAnimationController(
+        duration: Duration(milliseconds: animationDuration),
+      ),
+      opacityAnimationController: useAnimationController(
+        duration: Duration(milliseconds: animationDuration),
+      ),
+      screenSize: MediaQuery.of(context).size,
+    );
+
+    final scaleAnimation = ref.read(
+      gitHubMarkScaleAnimationProvider(scaleAnimationInput),
+    );
+
+    // 画面回転時に回転前のアニメーションを継続する
+    // 画面回転時にアニメーションを最初からやり直す場合は、第二引数のkeysを指定しない
+    useEffect(() {
+      scaleAnimation.startAnimation();
+      Future.delayed(Duration(milliseconds: animationDuration)).then((value) {
+        // TODO: router.replaceで画面遷移
+      });
+      return;
+    }, []);
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
@@ -19,12 +44,7 @@ class SplashScreen extends HookConsumerWidget {
         body: Stack(
           children: [
             Center(
-              child: Text(
-                'Splash',
-                style: TextStyle(
-                  color: appTheme.appColors.primary,
-                ),
-              ),
+              child: scaleAnimation,
             ),
           ],
         ),
