@@ -5,7 +5,7 @@ import 'package:flutter_template/presentation/route/app_route.dart';
 import 'package:flutter_template/presentation/style/app_theme.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class BottomTabScreen extends HookConsumerWidget {
+class AppBottomNavigationBar extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(appThemeProvider(context));

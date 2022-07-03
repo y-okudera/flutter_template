@@ -2,7 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_template/presentation/screen/home/home_screen.dart';
 import 'package:flutter_template/presentation/screen/splash/splash_screen.dart';
-import 'package:flutter_template/presentation/screen/tab/bottom_tab_screen.dart';
+import 'package:flutter_template/presentation/screen/tab/app_bottom_navigation_bar.dart';
 
 export 'app_route.gr.dart';
 
@@ -17,7 +17,8 @@ export 'app_route.gr.dart';
     ),
     AutoRoute(
       path: '/bottom_tab',
-      page: BottomTabScreen,
+      page: AppBottomNavigationBar,
+      name: 'AppBottomNavigationBarRoute',
       children: <AutoRoute>[
         AutoRoute(
           path: 'home',

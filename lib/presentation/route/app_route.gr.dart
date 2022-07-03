@@ -16,7 +16,7 @@ import 'package:flutter_template/presentation/screen/home/home_screen.dart'
     as _i3;
 import 'package:flutter_template/presentation/screen/splash/splash_screen.dart'
     as _i1;
-import 'package:flutter_template/presentation/screen/tab/bottom_tab_screen.dart'
+import 'package:flutter_template/presentation/screen/tab/app_bottom_navigation_bar.dart'
     as _i2;
 
 class AppRouter extends _i4.RootStackRouter {
@@ -29,9 +29,9 @@ class AppRouter extends _i4.RootStackRouter {
       return _i4.AdaptivePage<dynamic>(
           routeData: routeData, child: const _i1.SplashScreen());
     },
-    BottomTabRoute.name: (routeData) {
+    AppBottomNavigationBarRoute.name: (routeData) {
       return _i4.AdaptivePage<dynamic>(
-          routeData: routeData, child: _i2.BottomTabScreen());
+          routeData: routeData, child: _i2.AppBottomNavigationBar());
     },
     HomeRoute.name: (routeData) {
       return _i4.AdaptivePage<dynamic>(
@@ -42,10 +42,12 @@ class AppRouter extends _i4.RootStackRouter {
   @override
   List<_i4.RouteConfig> get routes => [
         _i4.RouteConfig(SplashRoute.name, path: '/'),
-        _i4.RouteConfig(BottomTabRoute.name, path: '/bottom_tab', children: [
-          _i4.RouteConfig(HomeRoute.name,
-              path: 'home', parent: BottomTabRoute.name)
-        ])
+        _i4.RouteConfig(AppBottomNavigationBarRoute.name,
+            path: '/bottom_tab',
+            children: [
+              _i4.RouteConfig(HomeRoute.name,
+                  path: 'home', parent: AppBottomNavigationBarRoute.name)
+            ])
       ];
 }
 
@@ -58,13 +60,13 @@ class SplashRoute extends _i4.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.BottomTabScreen]
-class BottomTabRoute extends _i4.PageRouteInfo<void> {
-  const BottomTabRoute({List<_i4.PageRouteInfo>? children})
-      : super(BottomTabRoute.name,
+/// [_i2.AppBottomNavigationBar]
+class AppBottomNavigationBarRoute extends _i4.PageRouteInfo<void> {
+  const AppBottomNavigationBarRoute({List<_i4.PageRouteInfo>? children})
+      : super(AppBottomNavigationBarRoute.name,
             path: '/bottom_tab', initialChildren: children);
 
-  static const String name = 'BottomTabRoute';
+  static const String name = 'AppBottomNavigationBarRoute';
 }
 
 /// generated route for

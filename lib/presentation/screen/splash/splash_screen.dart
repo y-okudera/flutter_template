@@ -34,7 +34,7 @@ class SplashScreen extends HookConsumerWidget {
     useEffect(() {
       scaleAnimation.startAnimation();
       Future.delayed(Duration(milliseconds: animationDuration)).then((value) {
-        context.router.replace(const BottomTabRoute());
+        context.router.replace(const AppBottomNavigationBarRoute());
       });
       return;
     }, []);
