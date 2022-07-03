@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_template/presentation/component/animation/scale_animation.dart';
 import 'package:flutter_template/presentation/component/animation/scale_animation_input.dart';
+import 'package:flutter_template/presentation/route/app_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SplashScreen extends HookConsumerWidget {
@@ -30,7 +32,7 @@ class SplashScreen extends HookConsumerWidget {
     useEffect(() {
       scaleAnimation.startAnimation();
       Future.delayed(Duration(milliseconds: animationDuration)).then((value) {
-        // TODO: router.replaceで画面遷移
+        context.router.replace(const BottomTabRoute());
       });
       return;
     }, []);
